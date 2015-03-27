@@ -154,3 +154,8 @@ service fw-prod start
 update-rc.d fw-prod defaults
 
 # Hopefully http://localhost:8080 will now bring up the foswiki Main/WebHome topic
+
+#apt-get install -y openjdk-7-jre
+#apt-get install -y unzip
+
+#sed -i -r '/^solr\.log=/ s/=.*/=\/var\/log\/solr/' /var/solr/log4j.properties

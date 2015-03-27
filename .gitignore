@@ -1,2 +1,3 @@
 *.epp
+/vagrant-fw0.epp
 /.vagrant/
