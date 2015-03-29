@@ -16,7 +16,6 @@ cpan                                         \
 #  Encode::compat                            Only if perl < 5.7.1 as we only suport perl 5.8+ this does not apply
 #  Win32::Console                            Only for Windows
 
-
 apt-get install -y rcs # Required for legacy RCS stores moving to PFS now as default
 
 apt-get install -y libdigest-sha-perl
@@ -129,9 +128,12 @@ cd fw-prod/core
 sudo -u www-data perl -T pseudo-install.pl developer
 sudo -u www-data perl -T pseudo-install.pl FastCGIEngineContrib
 
-# FastCGI cannot yet bootstrap configure, so we do what we need here
-cp /vagrant/LocalSite.cfg /var/www/fw-prod/core/lib/LocalSite.cfg
-chown www-data:www-data /var/www/fw-prod/core/lib/LocalSite.cfg
+# Bootstrap configure
+# sudo -u www-data perl tools/configure -save
+
+# cp /vagrant/LocalSite.cfg /var/www/fw-prod/core/lib/LocalSite.cfg
+# chown www-data:www-data /var/www/fw-prod/core/lib/LocalSite.cfg
+
 #sudo -u www-data perl configure \
 #  -set {DefaultUrlHost}='http://localhost:8080' \
 #  -set {ScriptUrlPath}='' \
