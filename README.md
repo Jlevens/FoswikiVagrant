@@ -1,4 +1,20 @@
 # FoswikiVagrantNginx
+
+Version 0.2
+===========
+The process has been slimmed down with only two files required. They are created inside the shell script which also allows me to parameterize certain elements.
+ 
+I also now take the directory name containing the vagrantfile as parameters as follows:
+ 
+Hostname__webport_sshport
+OR
+Hostname    with defaults of 8080 and 2220 (that is the directory name is the hostname)
+ 
+For example, I have Foswiki-09__8089_2229. It's an important help when creating multiple VMs as I am doing. In addition it means that each terminal reports the Hostname so I do not get lost.
+
+Version 0.1
+===========
+
 Vanilla Foswiki install from master github repo using Nginx as Webserver
 
 Tested with VirtualBox on Windows as host, *should* also work on a linux host.
