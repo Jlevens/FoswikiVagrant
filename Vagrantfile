@@ -3,11 +3,12 @@
 
 vmName = File.basename(File.expand_path(File.dirname(__FILE__)))
 if match = vmName.match(/(.*?)__(.*?)_(.*)/)
-    hostName, www_port, ssh_port = match.captures
+    hostName, www_port, ssh_port, solr_port = match.captures
 else
     hostName = vmName
     www_port = 8080
     ssh_port = 2220
+    solr_port= 8984
 end
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
@@ -22,6 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = hostName
 
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -29,9 +31,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # accessing "localhost:8080" will access port 80 on the guest machine.s
   config.vm.network "forwarded_port", guest: 80, host: www_port
   config.vm.network "forwarded_port", guest: 22, host: ssh_port
+  config.vm.network "forwarded_port", guest: 8983, host: solr_port
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
