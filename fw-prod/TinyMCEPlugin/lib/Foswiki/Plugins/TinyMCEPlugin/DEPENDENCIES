@@ -1,0 +1,2 @@
+Foswiki::Plugins::WysiwygPlugin,>=1.2.0,perl,Translator module
+Foswiki::Plugins::JQueryPlugin,>=6.00,perl,Required JQuery library

@@ -1,0 +1,12 @@
+*,v
+*,pfv
+*.gz
+/JsonRpcContrib.md5
+/JsonRpcContrib.sha1
+/JsonRpcContrib.tgz
+/JsonRpcContrib.txt
+/JsonRpcContrib.zip
+/JsonRpcContrib_installer
+/JsonRpcContrib_installer.pl
+/pub/System/JsonRpcContrib/jquery.jsonrpc.js
+/pub/System/JsonRpcContrib/json2.js

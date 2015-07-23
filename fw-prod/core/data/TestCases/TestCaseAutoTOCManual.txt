@@ -1,0 +1,54 @@
+%META:TOPICINFO{author="ProjectContributor" date="1434390873" format="1.1" version="1"}%
+Description: test to make sure TOC doesn't override manually generated
+anchors.
+
+*NOTE: requires {RequireCompatibleAnchors} = 0*
+
+[[%SCRIPTURLPATH{"view"}%/%WEB%/%TOPIC%?test=compare&amp;debugenableplugins=TestFixturePlugin&skin=pattern][run this test]]
+
+Designed by: Crawford Currie
+
+*Expected*
+<!-- expected rex -->
+<span id="ThisHeading"></span>
+This heading anchor
+
+<p />
+<span id="ThatHeading"></span>
+That heading anchor
+<p />
+<h1 id="ThatHeading_AN1"> ThatHeading </h1>
+<h1 id="ThisHeading_AN1"> ThisHeading </h1>
+<p />
+<div class="foswikiToc" id="foswikiTOC">
+ <ul>
+  <li>
+   <a href="?@REX(.*)#ThatHeading_AN1"> ThatHeading </a>
+  </li>
+  <li>
+   <a href="?@REX(.*)#ThisHeading_AN1"> ThisHeading </a>
+  </li>
+ </ul> 
+</div>
+<p />
+<a href='#ThisHeading'>Link</a> to this heading anchor
+<p />
+<a href='#ThatHeading'>Link</a> to that heading anchor
+<!-- /expected -->
+*Actual*
+<!-- actual -->
+#ThisHeading
+This heading anchor
+
+#ThatHeading
+That heading anchor
+
+---+ !ThatHeading
+---+ !ThisHeading
+
+%TOC%
+
+<a href='#ThisHeading'>Link</a> to this heading anchor
+
+<a href='#ThatHeading'>Link</a> to that heading anchor
+<!-- /actual -->

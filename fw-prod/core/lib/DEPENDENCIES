@@ -1,0 +1,3 @@
+#see lib/Foswiki/Contrib/core/DEPENDENCIES for the core list
+#the full dependencies for a foswiki release need to be generated 
+#by combining all DEPENDENCIES files included into that package.
