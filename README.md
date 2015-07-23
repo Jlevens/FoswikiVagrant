@@ -30,50 +30,43 @@ The current plugin requires Solr 5.0.0 or later. Next step will be download it f
 
 Next step will be to extract the software, create user and install the system service as follows:
 
-(First install java as root: "apt-get -y install openjdk-7-jdk")
-  tar xzf solr-5.0.0.tgz solr-5.0.0/bin/install_solr_service.sh 
-  cd solr-5.0.0/bin/
-  ./install_solr_service.sh ../../solr-5.0.0.tgz
-  service solr stop
+	(First install java as root: "apt-get -y install openjdk-7-jdk")
+ 	tar xzf solr-5.0.0.tgz solr-5.0.0/bin/install_solr_service.sh 
+	cd solr-5.0.0/bin/
+	./install_solr_service.sh ../../solr-5.0.0.tgz
+	service solr stop
 
 (If you want to add some secure Solr access then check http://foswiki.org/Extensions/SolrPlugin ).
 Now type "service solr start" and try http://localhost:8984/solr/#/  (don't forget that this will not work if you have added the secure Solr access, but you can just uncomment what you added or change Djetty.host=localhost by  Djetty.host=0.0.0.0 ).Would also work to start solr like this: ./solr start -h 0.0.0.0
 
 
 It's recommended to relocate the logs (from /var/solr/logs to /var/log/solr) as described in http://foswiki.org/Extensions/SolrPlugin :
-
-edit /var/solr/solr.in.sh
-disable garbage collection logs ... GC_LOG_OPTS
-set SOLR_LOGS_DIR=/var/log/solr
-edit /var/solr/log4j.properties
-set solr.log=/var/log/solr
+	edit /var/solr/solr.in.sh -> disable garbage collection logs ... GC_LOG_OPTS and set SOLR_LOGS_DIR=/var/log/solr
+	edit /var/solr/log4j.properties -> set solr.log=/var/log/solr
 
 To install the Foswiki configuration set:
-
-  (In my case <foswiki-dir>=var/www/fw-prod/core)
-  (cd /var/solr/data )
-  cp -r /<foswiki-dir>/solr/configsets . 
-  cp -r /<foswiki-dir>/solr/cores . 
-  chown -R solr.solr .
+	(In my case <foswiki-dir>=var/www/fw-prod/core)
+	cd /var/solr/data 
+	cp -r /<foswiki-dir>/solr/configsets . 
+	cp -r /<foswiki-dir>/solr/cores . 
+	chown -R solr.solr .
 
 
 Is time to test the indexer:
-  service solr start
-  cd /<foswiki-dir>/tools 
-  ./solrindex topic=Main.WebHome
+	service solr start
+	cd /<foswiki-dir>/tools 
+	./solrindex topic=Main.WebHome
 
 This may fails because of the missing stuff while installing the SolrPlugin. To install moose, xml-easy and mmagic perl:
-
-  sudo apt-get update
-  sudo apt-get install libany-moose-perl
-  sudo apt-get install libxml-easy-perl
-  apt-get install libfile-mmagic-perl
+	sudo apt-get update
+	sudo apt-get install libany-moose-perl
+	sudo apt-get install libxml-easy-perl
+	apt-get install libfile-mmagic-perl
 
 Now go to <foswiki-dir>/lib/Localsite.cfg and check that you have this configuration (if not, change it):
+	$Foswiki::cfg{Plugins}{SolrPlugin}{Module} = 'Foswiki::Plugins::SolrPlugin';
 
-$Foswiki::cfg{Plugins}{SolrPlugin}{Module} = 'Foswiki::Plugins::SolrPlugin';
-
-Now try again ./solrindex topic=Main.WebHome and look for the index you just created -> http://localhost:8080/System/SolrSearch 
+Now try again "./solrindex topic=Main.WebHome" and look for the index you just created -> http://localhost:8080/System/SolrSearch 
 
 Congratulations, you have finished installing Foswiki!
 
