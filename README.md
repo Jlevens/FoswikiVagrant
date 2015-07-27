@@ -2,6 +2,8 @@
 
 Here I used the information provided by Jlevens in the original repository (https://github.com/Jlevens/FoswikiVagrantNginx) and added some comments to make easier the Foswiki installation using Vagrant. Plus, I also described the steps to set up the Solr plugin extension for Foswiki. 
 
+Here the Vagrant file has been modified to establish a NAT connection between the host (8984) and the guest machine (8983). This means that Solr server will be started in the 8983 port inside the VM but, as we are not running solr on the same machine as Foswiki, we will use 8984 to listen from the host machine.  
+
 ______
 
 How to install Vanilla Foswiki from master github repository using Nginx as Webserver:
