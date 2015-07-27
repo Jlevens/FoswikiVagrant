@@ -20,7 +20,7 @@ ______
 
 Let's start with the Solr plugin installation:
 
-To do this I mainly followed the steps described in http://foswiki.org/Extensions/SolrPlugin , so here I just added some extra steps that I needed to do.
+To do this I mainly followed the steps described in http://foswiki.org/Extensions/SolrPlugin 
 
 A box called FoswikiVagrantNginx_default_"something".vbox was created when you did "vagrant up", so now you can start to use this VM with login and pasword "vagrant" (if the sesion was aborted, restart the computer and try again!).
 
@@ -37,14 +37,18 @@ Next step will be to extract the software, create user and install the system se
 	service solr stop
 
 (If you want to add some secure Solr access then check http://foswiki.org/Extensions/SolrPlugin ).
+
 Now type "service solr start" and try http://localhost:8984/solr/#/  (don't forget that this will not work if you have added the secure Solr access, but you can just uncomment what you added or change Djetty.host=localhost by  Djetty.host=0.0.0.0 ).Would also work to start solr like this: ./solr start -h 0.0.0.0
 
 
-It's recommended to relocate the logs (from /var/solr/logs to /var/log/solr) as described in http://foswiki.org/Extensions/SolrPlugin :
+It's recommended to relocate the logs as described in http://foswiki.org/Extensions/SolrPlugin :
+
 	edit /var/solr/solr.in.sh -> disable garbage collection logs ... GC_LOG_OPTS and set SOLR_LOGS_DIR=/var/log/solr
+
 	edit /var/solr/log4j.properties -> set solr.log=/var/log/solr
 
 To install the Foswiki configuration set:
+
 	(In my case <foswiki-dir>=var/www/fw-prod/core)
 	cd /var/solr/data 
 	cp -r /<foswiki-dir>/solr/configsets . 
@@ -53,20 +57,27 @@ To install the Foswiki configuration set:
 
 
 Is time to test the indexer:
+
 	service solr start
 	cd /<foswiki-dir>/tools 
 	./solrindex topic=Main.WebHome
 
 This may fails because of the missing stuff while installing the SolrPlugin. To install moose, xml-easy and mmagic perl:
-	sudo apt-get update
-	sudo apt-get install libany-moose-perl
-	sudo apt-get install libxml-easy-perl
+
+	apt-get update
+	apt-get install libany-moose-perl
+	apt-get install libxml-easy-perl
 	apt-get install libfile-mmagic-perl
 
 Now go to <foswiki-dir>/lib/Localsite.cfg and check that you have this configuration (if not, change it):
+
 	$Foswiki::cfg{Plugins}{SolrPlugin}{Module} = 'Foswiki::Plugins::SolrPlugin';
 
-Now try again "./solrindex topic=Main.WebHome" and look for the index you just created -> http://localhost:8080/System/SolrSearch 
+Now try again:
+	
+	./solrindex topic=Main.WebHome
 
-Congratulations, you have finished installing Foswiki!
+and look for the index you just created -> http://localhost:8080/System/SolrSearch 
+
+Well, you have finished installing Foswiki!
 
