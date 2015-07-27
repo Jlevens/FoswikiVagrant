@@ -1,0 +1,2 @@
+# Dependencies for JEditablePlugin
+Foswiki::Plugins::JQueryPlugin,>=6.00,perl,Required

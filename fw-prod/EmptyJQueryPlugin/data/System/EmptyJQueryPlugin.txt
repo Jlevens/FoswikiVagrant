@@ -1,0 +1,33 @@
+%META:TOPICPARENT{name="JQueryPlugin"}%
+<!--
+One line description, required for extensions repository catalog.
+   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
+-->
+---+!! EmptyJQueryPlugin
+
+%SHORTDESCRIPTION%
+
+%TOC%
+
+Available [[JQueryPlugin][jQuery]] plugins:
+%SEARCH{"META:TOPICPARENT.name='%TOPIC%'" 
+   type="query"
+   nonoise="on"
+   format="---+++ [[$web.$topic][$topic]] $percntINCLUDE{\"$topic\" section=\"summary\"}$percnt"
+}%
+
+---++ Installation
+%$INSTALL_INSTRUCTIONS%
+
+---++ Info
+
+|  Author: | %$CREATED_AUTHOR% |
+|  Copyright: | &copy; %$CREATEDYEAR%, %$CREATED_AUTHOR%, All Rights Reserved |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Dependencies: | %$DEPENDENCIES% |
+|  Version: | %$VERSION% |
+|  Release: | %$RELEASE% |
+|  Change&nbsp;History: | <!-- versions below in reverse order -->&nbsp; |
+|  1.0.0 (XX Mmm 20XX) | Initial release |
+|  Home: | http://foswiki.org/Extensions/%TOPIC% |
+|  Support: | http://foswiki.org/Support/%TOPIC% |
