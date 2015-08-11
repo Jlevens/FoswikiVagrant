@@ -1,5 +1,7 @@
 # FoswikiVagrantNginx
 
+Please see http://foswiki.org/Development/FoswikiVagrant for further discussion on the future direction of this project.
+
 Version 0.2
 ===========
 The process has been slimmed down with only two files required. They are created inside the shell script which also allows me to parameterize certain elements.
