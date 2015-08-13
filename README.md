@@ -1,4 +1,4 @@
-# FoswikiVagrantNginx
+# FoswikiVagrant
 
 Please see http://foswiki.org/Development/FoswikiVagrant for further discussion on the future direction of this project.
 
@@ -25,11 +25,14 @@ You'll need to install the following two items, both are one-click type installs
    * https://www.virtualbox.org/wiki/Downloads
    * https://www.vagrantup.com/downloads.html
 
-Clone this repo into a directory then run 'vagrant up' from within that directory, that's all it needs.
-   * https://www.virtualbox.org/wiki/Downloads &mdash; version 4.3.20 or later
-   * https://www.vagrantup.com/downloads.html &mdash; version 1.7.2 or later
+It's your responsibility to ensure you have versions of VirtualBox (or other VM software) and Vagrant that are mutually compatible: The following table list known issues
+| VM Provider | Required Vagrant | Notes |
+| ----- | ----- | ----- |
+| VirtualBox 4.3.20 to 4.3.30 | Vagrant 1.7.2+ | |
+| VirtualBox 5.0.0+ | Vagrant 1.7.3+ | |
+| VirtualBox 4.0+ to 4.3.18 | Vagrant 1.7.2+ | Probably works but ... If it works for you please let us know |
 
-Earlier versions of virtualbox & vagrant *may* work, but the further back you are the greater the risk of failure.
+Earlier versions of vagrant *may* work, but the further back you are the greater the risk of failure.
 
 Clone this repo into a directory then run 'vagrant up' from within that directory, that's all it needs.
 
