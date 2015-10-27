@@ -1,0 +1,9 @@
+---+ To Do
+
+---+++ Environment Variables
+
+The build tools require 3 environment variables:
+
+   * =FOSWIKI_HOME= points to the directory above lib, bin, data, ...  Generally =/path/to/foswiki/distro/core=
+   * =FOSWIKI_LIBS= points to the lib directory, usually =&lt;FOSWIKI_HOME&gt;/lib= and =&lt;FOSWIKI_HOME&gt;/lib/CPAN/lib=
+   * =PERL5LIB= should point to the =BuildContrib/lib= directory so that a consistent set of perltidy rules are used.

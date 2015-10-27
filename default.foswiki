@@ -1,0 +1,6 @@
+{
+    "Desc"        :    "Foswiki on Nginx using ports 8080 and 2220",
+    "www_port"    :    "8080",
+    "ssh_port"    :    "2220",
+    "web_server"  :    "nginx"
+}
