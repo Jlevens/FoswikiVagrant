@@ -1,6 +1,15 @@
 # FoswikiVagrant
 
-Please see http://foswiki.org/Development/FoswikiVagrant for further discussion on the future direction of this project.
+Version 0.3.1
+=============
+1. Restructured to place nginx and apache install code into separate shell scripts for easier maintenance.
+1. Tested Apache and Nginx options both OK, earlier changes created some breakage
+1. Extra Foswiki Extensions installed
+  * Part of ongoing effort to work out how to install many key extensions
+    * Which apt-get packages required
+    * Which cpanm modules required
+    * Special config work
+    * pseudo-install of the Extension
 
 Version 0.3
 ===========
