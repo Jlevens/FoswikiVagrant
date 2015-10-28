@@ -1,9 +1,5 @@
 # FoswikiVagrant
 
-Plans
-=====
-Please see http://foswiki.org/Development/FoswikiVagrant for further discussion on the future direction of this project.
-
 Instructions
 ============
 Foswiki install from master github repo using Nginx or Apache as the Webserver

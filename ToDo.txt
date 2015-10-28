@@ -1,5 +1,7 @@
 ---+ To Do
 
+Please see http://foswiki.org/Development/FoswikiVagrant for further discussion on the future direction of this project.
+
 ---+++ Environment Variables
 
 The build tools require 3 environment variables:
