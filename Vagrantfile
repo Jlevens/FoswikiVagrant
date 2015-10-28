@@ -19,7 +19,7 @@ rescue
     web_serv = 'nginx'
 end
 
-puts cfg['Desc']
+puts sprintf("Foswiki on %s using ports %s %s: %s\n", web_serv, www_port, ssh_port, cfg['Desc'] )
 
 VAGRANTFILE_API_VERSION = "2"
 
@@ -37,8 +37,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
 # Provisioning with file and shell: easy for FW devs to learn, other provisioners may have more long term value
+
+  config.vm.provision "file", source: "apache_install.sh", destination: "/home/vagrant/apache_install.sh"
+  config.vm.provision "file", source: "nginx_install.sh", destination: "/home/vagrant/nginx_install.sh"
+  
   config.vm.provision "shell" do |s|
-    s.path = "fw-install2.sh"
+    s.path = "fw-install.sh"
     s.args = "#{www_port} #{web_serv}" 
   end
 
