@@ -22,6 +22,7 @@ It's your responsibility to ensure you have versions of VirtualBox (or other VM 
 Earlier versions of vagrant *may* work, but the further back you are the greater the risk of failure.
 
 Once the above installed bring up a command line prompt and do the following:
+
 1. `git clone https://github.com/Jlevens/FoswikiVagrant <MyFoswikiVagrantDirectory>`
 1. `cd <MyFoswikiVagrantDirectory>'
 1. Optionally copy `default.foswiki` to `config.foswiki` and amend the small number of options to suit your needs (web-server and ports to use)
