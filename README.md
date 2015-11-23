@@ -12,6 +12,7 @@ You'll need to install the following three items, all are one-click type install
    * https://www.vagrantup.com/downloads.html
 
 It's your responsibility to ensure you have versions of VirtualBox (or other VM software) and Vagrant that are mutually compatible. This is actually quite easy as the relevant software and support are really mature now. The following table list known match-ups.
+
 | VM Provider | Required Vagrant | Notes |
 | ----- | ----- | ----- |
 | VirtualBox 4.3.20 to 4.3.30 | Vagrant 1.7.2+ | |
