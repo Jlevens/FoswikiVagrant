@@ -33,7 +33,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 22, host: ssh_port
 
   config.vm.provider "virtualbox" do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "512"]
+    # 512MB enough for basic install but solr needs more, trying 1GB
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
 # Provisioning with file and shell: easy for FW devs to learn, other provisioners may have more long term value

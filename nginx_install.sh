@@ -1,8 +1,8 @@
 # Nginx with fastcgi
 
 web_serv_start() {
-    service nginx restart
-    service fw-prod restart
+    service nginx start
+    service fw-prod start
     update-rc.d fw-prod defaults
 }
 
