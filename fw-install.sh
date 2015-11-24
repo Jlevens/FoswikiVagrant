@@ -425,7 +425,7 @@ sleep 5
 web_serv_start $www_port
 
 pushd tools
-./solrindex mode=full optimize=on
+sudo -u www-data ./solrindex mode=full optimize=on
 popd
 
 # Create a solr specific crontab file for incremental indexing
