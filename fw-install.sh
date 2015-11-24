@@ -14,6 +14,9 @@ fi
 # Started getting 404 accessing http://security.ubuntu.com, error came back with this suggestion
 apt-get update
 
+# Not included in all boxes - but it is rather important!
+apt-get install -y -qq make
+
 # curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 apt-get install -y -qq cpanminus
 

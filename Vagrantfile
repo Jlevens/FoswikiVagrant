@@ -1,6 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# require 'class/io'
 require 'json'
 
 vmName = File.basename(File.expand_path(File.dirname(__FILE__)))
@@ -9,22 +10,18 @@ vmName = File.basename(File.expand_path(File.dirname(__FILE__)))
 begin
     config = File.read('config.foswiki')
     cfg = JSON.parse(config)
-    hostName = cfg['hostName'] || vmName
-    www_port = cfg['www_port']
-    ssh_port = cfg['ssh_port']
-    web_serv = cfg['web_server']
-    memory   = cfg['memory'] || 1024
-    box      = cfg['box'] || "ubuntu/trusty64"
 rescue
-    hostName = vmName
-    www_port = 8080
-    ssh_port = 2220
-    web_serv = 'nginx'
-    memory   = 1024
-    box      = "ubuntu/trusty64"
+    cfg = {}
 end
 
-print sprintf("Foswiki on %s using ports %s %s: %s\n\n", web_serv, www_port, ssh_port, cfg['Desc'] )
+hostName = cfg['hostName']   || vmName
+www_port = cfg['www_port']   || 8080
+ssh_port = cfg['ssh_port']   || 2220
+web_serv = cfg['web_server'] || 'nginx'
+memory   = cfg['memory']     || 1024
+box      = cfg['box'] 		 || "ubuntu/trusty64"
+
+puts cfg['Desc'] || "Foswiki on #{web_serv} using ports #{www_port} and #{ssh_port}"
 
 VAGRANTFILE_API_VERSION = "2"
 
