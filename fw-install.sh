@@ -100,11 +100,19 @@ apt-get install -y -qq libio-socket-ssl-perl
 apt-get install -y -qq libjavascript-minifier-perl
 apt-get install -y -qq libjson-perl
 apt-get install -y -qq liblocale-maketext-perl
+# Used in UnitTestContrib; what about anywhere else?
+# Yes: Optional, required if {UserInterfaceInternationalisation} is enabled in configuration
+# Which is why UnitTest needs it as we have these sorts of tests to cover
+apt-get install -y -qq liblocale-maketext-lexicon-perl
 apt-get install -y -qq liblocale-msgfmt-perl
 apt-get install -y -qq libmime-base64-perl
 apt-get install -y -qq libsocket-perl
 apt-get install -y -qq liburi-perl
 apt-get install -y -qq libversion-perl
+
+# For 2.0+ (I think) and better mime support in emails
+# Module is pure-perl
+apt-get install -y -qq libemail-mime-perl
 
 # Needed by git hooks
 apt-get install -y -qq libtext-diff-perl
@@ -143,7 +151,14 @@ cat <<EOF >> /var/www/.bashrc
 fw_http='/etc/nginx/sites-available/fw-prod.conf'
 fw_init='/etc/init.d/fw-prod'
 fw_httplog='/var/log/nginx/fw-prod.log'
-export fw_http fw_init fw_httplog
+
+# Needed for UnitTestContrib
+FOSWIKI_HOME=/var/www/fw-prod/core
+
+# Needed for BuildContrib
+FOSWIKI_LIBS=/var/www/fw-prod/core/lib
+
+export fw_http fw_init fw_httplog FOSWIKI_HOME FOSWIKI_LIBS
 EOF
 #-- /var/www/.bashrc-----------------------------------------------------------------------------------
 
@@ -257,10 +272,6 @@ apt-get install -y -qq libcache-cache-perl
 sudo -u www-data perl -T pseudo-install.pl -e LdapNgPlugin
 
 sudo -u www-data perl -T pseudo-install.pl -e BehaviourContrib
-
-# Required to run Unit Tests
-FOSWIKI_HOME=/var/www/fw-prod/core
-export FOSWIKI_HOME
 
 # Now CGI is out of core perl and HTML gen stuff gone, do we need an earlier version?
 cpanm --sudo --skip-installed -q CGI
@@ -449,3 +460,4 @@ EOF
 
 perl tools/git_excludes.pl
 # Hopefully http://localhost:$web_port will now bring up the foswiki Main/WebHome topic
+
