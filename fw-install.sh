@@ -142,7 +142,8 @@ EOF
 # Create usual .config files for www-data, plus set up some useful env variables
 # (www-data is already set with /var/www as it's home directory)
 
-cp -rvt /var/www `find /etc/skel -name '.*'`
+# cp -rvt /var/www `find /etc/skel -name '.*'`
+mkhomedir_helper www-data
 
 #-- /var/www/.bashrc-----------------------------------------------------------------------------------
 cat <<EOF >> /var/www/.bashrc
