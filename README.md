@@ -25,7 +25,7 @@ Once the above installed bring up a command line prompt and do the following:
 
 1. `git clone https://github.com/Jlevens/FoswikiVagrant <MyFoswikiVagrantDirectory>`
 1. `cd <MyFoswikiVagrantDirectory>'
-1. Optionally copy `default.foswiki` to `config.foswiki` and amend the small number of options to suit your needs (web-server and ports to use)
+1. Copy `default.foswiki` to `config.foswiki` and amend the small number of options to suit your needs (web-server; web-ports and git config to use)
 1. `vagrant up`
 1. That's all folks
 

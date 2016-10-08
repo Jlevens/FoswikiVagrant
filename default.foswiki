@@ -3,5 +3,7 @@
     "www_port"    :    "8080",
     "ssh_port"    :    "2220",
     "web_server"  :    "nginx",
-    "memory"      :    1024
+    "memory"      :    1024,
+    "git_user"    :    This User
+    "git_email"   :    this.user@project.org
 }
