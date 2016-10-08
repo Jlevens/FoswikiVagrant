@@ -4,6 +4,6 @@
     "ssh_port"    :    "2220",
     "web_server"  :    "nginx",
     "memory"      :    1024,
-    "git_user"    :    This User
-    "git_email"   :    this.user@project.org
+    "git_user"    :    "This User",
+    "git_email"   :    "this.user@project.org"
 }
