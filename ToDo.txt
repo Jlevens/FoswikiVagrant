@@ -9,3 +9,67 @@ The build tools require 3 environment variables:
    * =FOSWIKI_HOME= points to the directory above lib, bin, data, ...  Generally =/path/to/foswiki/distro/core=
    * =FOSWIKI_LIBS= points to the lib directory, usually =&lt;FOSWIKI_HOME&gt;/lib= and =&lt;FOSWIKI_HOME&gt;/lib/CPAN/lib=
    * =PERL5LIB= should point to the =BuildContrib/lib= directory so that a consistent set of perltidy rules are used.
+
+zip needed by build tools
+install uglifyjs and cssmin (node.js version) for js, css compression
+build packages and pseudo link in correct Extension.txt
+
+Set correct timezone and apt daily cron of ntp
+
+Set up useful default cron tasks
+
+Extra apt-get's done on new server
+
+Commandline: apt-get install -y cifs-utils
+Commandline: apt-get install perl-doc
+Commandline: apt-get install libdatetime-perl
+Commandline: apt-get install postfix
+Commandline: apt-get install libgraphics-magick-perl
+Commandline: apt-get install mc
+
+Commandline: apt-get install libhtml-calendarmonthsimple-perl
+Commandline: apt-get install libxml-libxml-perl
+Commandline: apt-get install cadaver
+Commandline: apt-get install gcc
+Commandline: apt-get install tshark
+Commandline: apt-get install zip
+Commandline: apt-get install npm
+Commandline: apt-get install node
+
+Extra cpanm's to do??
+
+For WebDAV
+   File::Find::Rule
+   File::Find::Rule::Filesys::Virtual
+   Filesys::Virtual
+   Filesys::Virtual::Plain
+
+Maybe
+   List::Util
+
+Probably not
+   CPAN::Meta::Check
+   Class::Load
+   Class::Mix
+   Date::Handler
+   HTML::Entities::Numbered
+   HTML::Tagset
+   JSON::PP
+   Lingua::EN::Sentence
+   Module::Metadata
+   Mozilla::CA
+   Number::Compare
+   Params::Classify
+   Params::Validate
+   Sub::Uplevel
+   Test::Deep
+   Test::Fatal
+   Test::NoWarnings
+   Test::Requires
+   Test::Simple
+   Test::Warn
+   Test::Warnings
+   Text::Glob
+   Time::ParseDate
+   Try::Tiny
+   URI

@@ -49,8 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.provision "shell" do |s|
     s.path = "fw-install.sh"
-    s.args = "#{www_port} #{web_serv}" 
+    s.args = "#{www_port} #{web_serv} #{git_user} #{git_email}"
   end
-
 
 end

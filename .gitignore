@@ -1,6 +1,4 @@
 *.epp
 /config.foswiki
 /.vagrant/
-out1.wtxt
-fw-install3.sh
 

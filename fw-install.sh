@@ -3,6 +3,8 @@
 
 www_port=$1
 web_serv=$2
+git_user=$3
+git_email=$4
 
 if [ "$web_serv" == "nginx" ]
 then
@@ -177,6 +179,10 @@ sudo -u www-data touch /var/www/fw-prod/core/data/.htpasswd
 sudo -u www-data touch /var/www/fw-prod/core/working/htpasswd.lock
 
 cd fw-prod/core
+git config --global user.name $git_user
+git config --global user.email $git_email
+git config --global credential.helper 'cache --timeout=7200'
+
 sudo -u www-data perl -T pseudo-install.pl developer
 sudo -u www-data perl -T pseudo-install.pl FastCGIEngineContrib
 
@@ -443,6 +449,7 @@ popd
 #-- /etc/cron.d/solr ----------------------------------------------------------------------------------
 cat <<EOF > /etc/cron.d/solr
 */15 * * * * www-data /var/www/fw-prod/core/tools/solrjob --mode delta
+0 0 * * 6 www-data /var/www/fw-prod/core/tools/solrjob --mode full
 EOF
 #-- /var/www/.bashrc-----------------------------------------------------------------------------------
 

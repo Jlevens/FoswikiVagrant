@@ -1,5 +1,12 @@
 # FoswikiVagrant
 
+Version 0.3.2
+=============
+1. Added git config settings to ease git usage for any development work
+   * git config --global user.name $git_user (from config.foswiki)
+   * git config --global user.email $git_email (from config.foswiki)
+   * git config --global credential.helper 'cache --timeout=3600'" as a standard setting
+
 Version 0.3.1
 =============
 1. Restructured to place nginx and apache install code into separate shell scripts for easier maintenance.
