@@ -19,7 +19,10 @@ www_port = cfg['www_port']   || 8080
 ssh_port = cfg['ssh_port']   || 2220
 web_serv = cfg['web_server'] || 'nginx'
 memory   = cfg['memory']     || 1024
-box      = cfg['box'] 		 || "ubuntu/trusty64"
+box      = cfg['box']		|| "ubuntu/trusty64"
+git_user = cfg['git_user']   || "This User"
+git_email= cfg['git_email']  || "This.User@project.org"
+
 
 puts cfg['Desc'] || "Foswiki on #{web_serv} using ports #{www_port} and #{ssh_port}"
 
