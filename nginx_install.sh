@@ -86,7 +86,7 @@ NAME=fw-prod
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 USER=www-data
-GRPOUP=www-data
+GROUP=www-data
 
 FOSWIKI_ROOT=/var/www/fw-prod/core
 
